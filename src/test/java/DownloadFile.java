@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -59,6 +60,11 @@ public class DownloadFile {
 
         robot.keyPress(KeyEvent.VK_ENTER);
         robot.keyRelease(KeyEvent.VK_ENTER);
+
+//        Thread.sleep(5000);
+//        String data="C:\\Users\\oshan\\Downloads\\1.png";
+//        WebElement uploadfile=driver.findElement(By.id("j_idt88:j_idt89_input"));
+//        uploadfile.sendKeys(data);
 
 
     }
