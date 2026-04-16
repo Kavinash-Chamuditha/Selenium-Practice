@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class KeyboardActions {
     WebDriver driver;
 
@@ -36,10 +38,22 @@ public class KeyboardActions {
     }
 
 
-//@Test
-//    public void KeyboardTest2(){
-//        driver.get("https://www.leafground.com/list.xhtml");
-//
-//    }
+@Test
+    public void KeyboardTest2() throws InterruptedException {
+        driver.get("https://www.leafground.com/list.xhtml");
+
+        Thread.sleep(3000);
+    List<WebElement> selectors=driver.findElements(By.xpath("(//ul[@aria-label='From'])/li"));
+    int size=selectors.size();
+    System.out.println("Selectoable size is" +selectors.size());
+    Actions actions=new Actions(driver);
+    actions.keyDown(Keys.CONTROL)
+            .click(selectors.get(0)).
+                    click(selectors.get(1)).
+                            click(selectors.get(2)).
+                                    click(selectors.get(3)).perform();
+
+
+    }
 
 }
