@@ -4,6 +4,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class DownloadFile {
@@ -40,8 +43,23 @@ public class DownloadFile {
 
 
     @Test
-    public  void fileDUploadTest(){
+    public  void fileDUploadTest() throws AWTException, InterruptedException {
         driver.get("https://www.leafground.com/file.xhtml");
+        driver.findElement(By.id("j_idt88:j_idt89")).click();
+
+        StringSelection selection = new StringSelection("C:\\Users\\oshan\\Downloads\\1.png");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection,null);
+
+        Thread.sleep(5000);
+        Robot robot=new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
 
     }
 }
