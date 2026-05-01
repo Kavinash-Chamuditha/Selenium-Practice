@@ -25,7 +25,8 @@ public class ImplicitWaitDemo {
 
         driver.findElement(By.xpath("//button[@id='j_idt87:j_idt89']")).click();
 
-        String newBtnText=driver.findElement(By.xpath("//button[@id='j_idt87:j_idt90']/span")).getText();
+        String newBtnText=driver.findElement
+                (By.xpath("//button[@id='j_idt87:j_idt90']/span")).getText();
         System.out.println("New Button Text Is " +newBtnText);
 
     }
